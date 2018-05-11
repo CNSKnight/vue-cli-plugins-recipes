@@ -1,29 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <header>
+      <nav class="lime darken-2 mb-lg">
+        <div class="nav-wrapper">
+          <ul>
+            <li>
+              <router-link to="/">Home</router-link>
+            </li>
+            <li>
+              <router-link to="/recipes">Recipes</router-link>
+            </li>
+            <li>
+              <router-link to="/details">Details</router-link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <aside>
+      <div class="row">
+        <div class="col s12">
+          <app-notifications/>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <router-view/>
+    </main>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import Notifications from "@/components/notifications/Notifications";
+export default {
+  name: "app",
+  components: {
+    "app-notifications": Notifications
   }
-}
+};
+</script>
+
+<style src="./assets/app.css">
 </style>
